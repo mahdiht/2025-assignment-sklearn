@@ -186,7 +186,7 @@ class MonthlySplit(BaseCrossValidator):
 
         months = sorted(list(set([(d.year, d.month) for d in dates])))
         return max(0, len(months) - 1)
-    
+
     def split(self, X, y, groups=None):
         """Generate indices to split data into training and test set.
 
@@ -231,3 +231,4 @@ class MonthlySplit(BaseCrossValidator):
                 elif (date.year, date.month) == test_month:
                     idx_test.append(idx)
             yield (np.array(idx_train), np.array(idx_test))
+            
